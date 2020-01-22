@@ -17,7 +17,7 @@ info.log_versions()
 
 # END LOGGING CONFIGURATION
 
-DATASET = bangla
+DATASET = Bangla
 PRINT_PATTERNS = True
 
 if DATASET == Semeval2017:
@@ -26,6 +26,10 @@ if DATASET == Semeval2017:
 elif DATASET == bangla:
     tokenizer = tk.tokenizers.nltk
     DATASET_FOLDER = "data/bangla"
+elif DATASET == Bangla:
+    tokenizer = tk.tokenizers.nltk
+    DATASET_FOLDER = "data/Bangla"
+    
 else:
     raise NotImplementedError("Can't set the hyperparameters: unknown dataset")
 
