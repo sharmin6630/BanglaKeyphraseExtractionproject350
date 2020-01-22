@@ -5,7 +5,8 @@ import logging
 
 def load_glove(glove_dir,size):
     embeddings_index = {}
-    glove_path = ('glove.6B.%sd.txt' % size)
+    #glove_path = ('glove.6B.%sd.txt' % size)
+    glove_path = ('bengali-word-embedding.txt' % size)
 
     logging.debug("Loading GloVe pre-trained embeddings from %s" % glove_path)
 
