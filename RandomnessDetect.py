@@ -80,9 +80,9 @@ elif DATASET == bangla:
     BATCH_SIZE = 32
     EPOCHS = 10
     KP_WEIGHT = 10
-elif DATASET == bangla:
+elif DATASET == Bangla:
     tokenizer = tk.tokenizers.nltk
-    DATASET_FOLDER = "data/bangla"
+    DATASET_FOLDER = "data/Bangla"
     MAX_DOCUMENT_LENGTH = 550
     MAX_VOCABULARY_SIZE = 20000
     EMBEDDINGS_SIZE = 50
