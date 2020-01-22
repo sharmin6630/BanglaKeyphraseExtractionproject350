@@ -127,7 +127,7 @@ class Dataset(object):
         return self.validation_documents, self.validation_answers
 
 
-class Bangla(Dataset):
+class bangla(Dataset):
     """
     Dataset from Annette Hulth's "Improved Automatic Keyword Extraction
     Given More Linguistic Knowledge"
@@ -140,7 +140,7 @@ class Bangla(Dataset):
     """
 
     def __init__(self, path):
-        super().__init__("Bangla", path)
+        super().__init__("bangla", path)
 
     def __load_documents(self, folder):
         """
