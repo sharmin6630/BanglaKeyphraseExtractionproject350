@@ -17,13 +17,13 @@ info.log_versions()
 
 # END LOGGING CONFIGURATION
 
-DATASET = Bangla
+DATASET = bangla
 PRINT_PATTERNS = True
 
 if DATASET == Semeval2017:
     tokenizer = tk.tokenizers.nltk
     DATASET_FOLDER = "data/Semeval2017"
-elif DATASET == Bangla:
+elif DATASET == bangla:
     tokenizer = tk.tokenizers.nltk
     DATASET_FOLDER = "data/bangla"
 else:
