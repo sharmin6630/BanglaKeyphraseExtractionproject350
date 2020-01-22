@@ -60,7 +60,7 @@ SHOW_PLOTS = True
 
 # Dataset and hyperparameters for each dataset
 
-DATASET = bangla
+DATASET = Bangla
 
 if DATASET == Semeval2017:
     tokenizer = tk.tokenizers.nltk
@@ -76,7 +76,16 @@ elif DATASET == bangla:
     DATASET_FOLDER = "data/bangla"
     MAX_DOCUMENT_LENGTH = 550
     MAX_VOCABULARY_SIZE = 20000
-    EMBEDDINGS_SIZE = 500
+    EMBEDDINGS_SIZE = 50
+    BATCH_SIZE = 32
+    EPOCHS = 10
+    KP_WEIGHT = 10
+elif DATASET == bangla:
+    tokenizer = tk.tokenizers.nltk
+    DATASET_FOLDER = "data/bangla"
+    MAX_DOCUMENT_LENGTH = 550
+    MAX_VOCABULARY_SIZE = 20000
+    EMBEDDINGS_SIZE = 50
     BATCH_SIZE = 32
     EPOCHS = 10
     KP_WEIGHT = 10
