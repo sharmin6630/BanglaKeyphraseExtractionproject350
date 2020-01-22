@@ -206,6 +206,86 @@ class bangla(Dataset):
 
     def _load_validation_answers(self):
         return self.__load_answers("Validation")
+    
+class Bangla(Dataset):
+    """
+    Dataset from Annette Hulth's "Improved Automatic Keyword Extraction
+    Given More Linguistic Knowledge"
+
+    Note: to make the results obtained with this dataset comparable to
+    the ones described in Hulth's paper, only the "uncontrolled" terms
+    are used.
+
+    Full-text here: http://www.aclweb.org/anthology/W03-1028
+    """
+
+    def __init__(self, path):
+        super().__init__("Bangla", path)
+
+    def __load_documents(self, folder):
+        """
+        Loads the documents in the .abstr files contained
+        in the specified folder and puts them in a dictionary
+        indexed by document id (i.e. the filename without the
+        extension).
+
+        :param folder: the folder containing the documents
+        :return: a dictionary with the documents
+        """
+
+        # This dictionary will contain the documents
+        documents = {}
+
+        for doc in os.listdir("%s/%s" % (self.path, folder)):
+            if doc.endswith(".txt"):
+                content = open(("%s/%s/%s" % (self.path, folder, doc)), "r").read()
+                documents[doc[:doc.find('.')]] = content
+
+        return documents
+
+    def __load_answers(self, folder):
+        """
+        Loads the answers contained in the .contr and .uncontr files
+        and puts them in a dictionary indexed by document ID
+        (i.e. the document name without the extension)
+        :param folder: the folder containing the answer files
+        :return: a dictionary with the answers
+        """
+
+        # This dictionary will contain the answers
+        answers = {}
+
+        for doc in os.listdir("%s/%s" % (self.path, folder)):
+            if doc.endswith(".contr"):
+                content = open(("%s/%s/%s" % (self.path, folder, doc)), "r").read()
+                retrieved_answers = content.split(';')
+                doc_id = doc[:doc.find('.')]
+                for answer in retrieved_answers:
+                    answer = answer.strip()
+                    if doc_id not in answers:
+                        answers[doc_id] = [answer]
+                    else:
+                        answers[doc_id].append(answer)
+
+        return answers
+
+    def _load_test_documents(self):
+        return self.__load_documents("Test")
+
+    def _load_train_documents(self):
+        return self.__load_documents("Training")
+
+    def _load_validation_documents(self):
+        return self.__load_documents("Validation")
+
+    def _load_test_answers(self):
+        return self.__load_answers("Test")
+
+    def _load_train_answers(self):
+        return self.__load_answers("Training")
+
+    def _load_validation_answers(self):
+        return self.__load_answers("Validation")
 
 
 class Semeval2017(Dataset):
