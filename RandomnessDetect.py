@@ -73,7 +73,7 @@ if DATASET == Semeval2017:
     KP_WEIGHT = 10
 elif DATASET == Bangla:
     tokenizer = tk.tokenizers.nltk
-    DATASET_FOLDER = "data/Bangla"
+    DATASET_FOLDER = "data/bangla"
     MAX_DOCUMENT_LENGTH = 550
     MAX_VOCABULARY_SIZE = 20000
     EMBEDDINGS_SIZE = 500
