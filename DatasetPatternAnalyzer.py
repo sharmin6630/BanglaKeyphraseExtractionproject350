@@ -25,7 +25,7 @@ if DATASET == Semeval2017:
     DATASET_FOLDER = "data/Semeval2017"
 elif DATASET == Bangla:
     tokenizer = tk.tokenizers.nltk
-    DATASET_FOLDER = "data/Bangla"
+    DATASET_FOLDER = "data/bangla"
 else:
     raise NotImplementedError("Can't set the hyperparameters: unknown dataset")
 
